@@ -1,0 +1,265 @@
+{
+  "clientes": [
+    {
+      "identificacion": "CLI-1001",
+      "nombre_completo": "Carlos Andrés Méndez Gómez",
+      "contacto": {
+        "telefono": "+57 310 9876543",
+        "email": "carlos.mendez.ficticio@correo.com",
+        "ciudad": "Medellín",
+        "direccion": "Calle 45 # 23-12"
+      },
+      "tipo_cliente": "PERSONA_NATURAL",
+      "equipos": [
+        {
+          "numero_serie": "SN-DELL-8821",
+          "tipo_equipo": "Laptop",
+          "marca": "Dell",
+          "modelo": "Latitude 5420",
+          "especificaciones": {
+            "procesador": "Core i7 11th Gen",
+            "ram_gb": 16,
+            "almacenamiento": "512GB NVMe SSD"
+          }
+        },
+        {
+          "numero_serie": "SN-LOGI-4411",
+          "tipo_equipo": "Periférico",
+          "marca": "Logitech",
+          "modelo": "MX Master 3",
+          "especificaciones": {
+            "tipo_conexion": "Bluetooth / Dongle",
+            "dpi": 4000
+          }
+        }
+      ],
+      "fecha_registro": "2026-01-15T08:00:00Z"
+    },
+    {
+      "identificacion": "CLI-1002",
+      "nombre_completo": "Industrias Biomédicas Andinas S.A.S.",
+      "contacto": {
+        "telefono": "+57 301 5551234",
+        "email": "soporte@biomedicas-ficticio.org",
+        "ciudad": "Bogotá",
+        "direccion": "Carrera 7 # 115-40"
+      },
+      "tipo_cliente": "EMPRESA",
+      "equipos": [
+        {
+          "numero_serie": "SN-HP-9900",
+          "tipo_equipo": "Workstation",
+          "marca": "HP",
+          "modelo": "Z4 G4 Workstation",
+          "especificaciones": {
+            "procesador": "Intel Xeon W-2223",
+            "ram_gb": 64,
+            "almacenamiento": "2TB NVMe + 4TB HDD",
+            "gpu": "NVIDIA Quadro RTX 4000"
+          }
+        }
+      ],
+      "fecha_registro": "2026-02-10T10:30:00Z"
+    },
+    {
+      "identificacion": "CLI-1003",
+      "nombre_completo": "Mariana Restrepo López",
+      "contacto": {
+        "telefono": "+57 315 4447788",
+        "email": "mariana.restrepo.ficticio@correo.com",
+        "ciudad": "Cali",
+        "direccion": "Avenida 6N # 28-05"
+      },
+      "tipo_cliente": "PERSONA_NATURAL",
+      "equipos": [
+        {
+          "numero_serie": "SN-APPLE-2201",
+          "tipo_equipo": "MacBook",
+          "marca": "Apple",
+          "modelo": "MacBook Pro 14 M2 Pro",
+          "especificaciones": {
+            "chip": "Apple M2 Pro (10 cores)",
+            "ram_gb": 16,
+            "almacenamiento": "512GB SSD"
+          }
+        }
+      ],
+      "fecha_registro": "2026-03-01T14:20:00Z"
+    }
+  ],
+  "ordenes_servicio": [
+    {
+      "codigo_orden": "ORD-2026-001",
+      "cliente_identificacion": "CLI-1001",
+      "datos_equipo": {
+        "numero_serie": "SN-DELL-8821",
+        "tipo_equipo": "Laptop",
+        "modelo": "Latitude 5420",
+        "falla_reportada": "Sobrecalentamiento y apagado repentino bajo carga de trabajo"
+      },
+      "tecnico_asignado": "Ing. Laura Marcela Ríos",
+      "estado": "EN_REPARACION",
+      "prioridad": "ALTA",
+      "checklist_diagnostico": [
+        {
+          "componente": "Pasta Térmica",
+          "estado_fisico": "Seca / Degradada",
+          "requiere_cambio": true
+        },
+        {
+          "componente": "Ventilador Interno",
+          "estado_fisico": "Obstrucción por polvo fino",
+          "requiere_cambio": false
+        },
+        {
+          "componente": "Módulo de Batería",
+          "estado_fisico": "Salud al 89%",
+          "requiere_cambio": false
+        }
+      ],
+      "repuestos_utilizados": [
+        {
+          "codigo": "REP-PT-01",
+          "descripcion": "Pasta térmica de compuesto cerámico Noctua NT-H1",
+          "cantidad": 1,
+          "precio_unitario": 45000.0,
+          "subtotal": 45000.0
+        },
+        {
+          "codigo": "SRV-MANT-01",
+          "descripcion": "Servicio de limpieza química y mantenimiento del disipador",
+          "cantidad": 1,
+          "precio_unitario": 80000.0,
+          "subtotal": 80000.0
+        }
+      ],
+      "costo_total": 125000.0,
+      "historial_estados": [
+        {
+          "estado": "RECIBIDO",
+          "fecha": "2026-10-18T09:30:00Z",
+          "responsable": "Andrés Gómez (Recepción)",
+          "nota": "Equipo ingresa con cargador original"
+        },
+        {
+          "estado": "EN_DIAGNOSTICO",
+          "fecha": "2026-10-18T14:00:00Z",
+          "responsable": "Laura Ríos (Técnico)",
+          "nota": "Prueba de esfuerzo thermal throttling a 98°C"
+        },
+        {
+          "estado": "EN_REPARACION",
+          "fecha": "2026-10-19T09:15:00Z",
+          "responsable": "Laura Ríos (Técnico)",
+          "nota": "Aprobación de presupuesto por cliente y desmontaje"
+        }
+      ],
+      "fecha_ingreso": "2026-10-18T09:30:00Z"
+    },
+    {
+      "codigo_orden": "ORD-2026-002",
+      "cliente_identificacion": "CLI-1002",
+      "datos_equipo": {
+        "numero_serie": "SN-HP-9900",
+        "tipo_equipo": "Workstation",
+        "modelo": "Z4 G4 Workstation",
+        "falla_reportada": "Ruido inusual en fuente y lentitud en renderizado 3D"
+      },
+      "tecnico_asignado": "Ing. Mateo Bermúdez",
+      "estado": "COMPLETADO",
+      "prioridad": "URGENTE",
+      "checklist_diagnostico": [
+        {
+          "componente": "Fuente de Poder 750W",
+          "estado_fisico": "Capacitor hinchado",
+          "requiere_cambio": true
+        },
+        {
+          "componente": "Tarjeta Gráfica RTX 4000",
+          "estado_fisico": "Operativa / Temperaturas normales",
+          "requiere_cambio": false
+        }
+      ],
+      "repuestos_utilizados": [
+        {
+          "codigo": "REP-PSU-750",
+          "descripcion": "Fuente de poder certificada 80 Plus Gold 750W Modular",
+          "cantidad": 1,
+          "precio_unitario": 580000.0,
+          "subtotal": 580000.0
+        },
+        {
+          "codigo": "SRV-INST-02",
+          "descripcion": "Instalación de hardware y pruebas de carga continua 24h",
+          "cantidad": 1,
+          "precio_unitario": 120000.0,
+          "subtotal": 120000.0
+        }
+      ],
+      "costo_total": 700000.0,
+      "historial_estados": [
+        {
+          "estado": "RECIBIDO",
+          "fecha": "2026-10-15T08:00:00Z",
+          "responsable": "Andrés Gómez (Recepción)",
+          "nota": "Workstation corporativa prioridad crítica"
+        },
+        {
+          "estado": "EN_DIAGNOSTICO",
+          "fecha": "2026-10-15T11:00:00Z",
+          "responsable": "Mateo Bermúdez (Técnico)",
+          "nota": "Diagnóstico de falla eléctrica en línea de 12V"
+        },
+        {
+          "estado": "EN_REPARACION",
+          "fecha": "2026-10-16T10:00:00Z",
+          "responsable": "Mateo Bermúdez (Técnico)",
+          "nota": "Reemplazo de fuente de poder"
+        },
+        {
+          "estado": "COMPLETADO",
+          "fecha": "2026-10-17T17:00:00Z",
+          "responsable": "Mateo Bermúdez (Técnico)",
+          "nota": "Equipo sometido a benchmark 3D exitoso, listo para entrega"
+        }
+      ],
+      "fecha_ingreso": "2026-10-15T08:00:00Z"
+    },
+    {
+      "codigo_orden": "ORD-2026-003",
+      "cliente_identificacion": "CLI-1003",
+      "datos_equipo": {
+        "numero_serie": "SN-APPLE-2201",
+        "tipo_equipo": "MacBook",
+        "modelo": "MacBook Pro 14 M2 Pro",
+        "falla_reportada": "Teclas pegajosas por derrame leve de líquido superficial"
+      },
+      "tecnico_asignado": "Ing. Laura Marcela Ríos",
+      "estado": "RECIBIDO",
+      "prioridad": "MEDIA",
+      "checklist_diagnostico": [
+        {
+          "componente": "Top Case / Teclado",
+          "estado_fisico": "Residuos de café seco",
+          "requiere_cambio": false
+        },
+        {
+          "componente": "Placa Lógica (Logic Board)",
+          "estado_fisico": "Sin corrosión, sensores de humedad intactos",
+          "requiere_cambio": false
+        }
+      ],
+      "repuestos_utilizados": [],
+      "costo_total": 0.0,
+      "historial_estados": [
+        {
+          "estado": "RECIBIDO",
+          "fecha": "2026-10-21T10:00:00Z",
+          "responsable": "Andrés Gómez (Recepción)",
+          "nota": "Recepción para desarme preventivo inmediato"
+        }
+      ],
+      "fecha_ingreso": "2026-10-21T10:00:00Z"
+    }
+  ]
+}

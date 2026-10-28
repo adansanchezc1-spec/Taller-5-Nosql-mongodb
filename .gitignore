@@ -1,0 +1,16 @@
+# Credenciales y variables sensibles
+.env
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE y editores
+.idea/
+.vscode/
