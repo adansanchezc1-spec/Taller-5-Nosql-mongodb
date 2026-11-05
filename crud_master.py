@@ -7,7 +7,11 @@ operadores de actualización ($set, $push, $inc) y validaciones de integridad re
 
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
-from bson import ObjectId
+try:
+    from bson import ObjectId
+except ImportError:
+    class ObjectId(str):  # type: ignore
+        pass
 from pymongo.collection import Collection
 from pymongo.errors import PyMongoError
 

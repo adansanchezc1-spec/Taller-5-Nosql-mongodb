@@ -9,7 +9,10 @@ import json
 import os
 import sys
 from typing import Any, Dict
-from bson import json_util
+try:
+    from bson import json_util
+except ImportError:
+    json_util = None
 
 from database import DatabaseManager
 from crud_master import CrudMaster
@@ -35,7 +38,12 @@ def imprimir_separador(titulo: str = "") -> None:
 
 def formatear_documento(doc: Dict[str, Any]) -> str:
     """Serializa un documento BSON/Mongo a JSON legible."""
-    return json.dumps(json.loads(json_util.dumps(doc)), indent=2, ensure_ascii=False)
+    if json_util is not None:
+        try:
+            return json.dumps(json.loads(json_util.dumps(doc)), indent=2, ensure_ascii=False)
+        except Exception:
+            pass
+    return json.dumps(doc, indent=2, ensure_ascii=False, default=str)
 
 
 def ejecutar_demostracion_completa(crud: CrudMaster) -> None:
@@ -163,10 +171,11 @@ def menu_interactivo(crud: CrudMaster, db_mgr: DatabaseManager) -> None:
         print("7. Insertar una Orden de Prueba")
         print("8. Eliminar Orden de Prueba por Código")
         print("9. Probar Comportamiento de Desconexión / Error de Servidor")
+        print("10. Lanzar Mini Interfaz Gráfica (Ventana de Escritorio)")
         print("0. Salir y Cerrar Conexión de forma segura")
         print("=" * 75)
 
-        opcion = input("Seleccione una opción (0-9): ").strip()
+        opcion = input("Seleccione una opción (0-10): ").strip()
 
         if opcion == "1":
             ejecutar_demostracion_completa(crud)
@@ -221,6 +230,13 @@ def menu_interactivo(crud: CrudMaster, db_mgr: DatabaseManager) -> None:
             crud.delete_orden_by_codigo(codigo)
         elif opcion == "9":
             probar_desconexion()
+        elif opcion == "10":
+            try:
+                import gui_app
+                print("\n[GUI] Abriendo interfaz gráfica de TechCare Solutions...")
+                gui_app.lanzar_gui()
+            except Exception as err:
+                print(f"[ERROR GUI] No se pudo iniciar la interfaz gráfica: {err}")
         elif opcion == "0":
             print("\nFinalizando aplicación...")
             db_mgr.close()
@@ -254,6 +270,13 @@ def main() -> None:
     try:
         db = db_mgr.connect()
         crud = CrudMaster(db_manager=db_mgr)
+
+        # Si se pasa el argumento '--gui', abre la interfaz gráfica directamente
+        if "--gui" in sys.argv:
+            import gui_app
+            db_mgr.close()
+            gui_app.lanzar_gui()
+            return
 
         # Si se pasa el argumento '--auto', ejecuta directamente la demostración y sale
         if "--auto" in sys.argv:

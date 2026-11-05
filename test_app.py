@@ -10,7 +10,11 @@ Verifica los requerimientos técnicos del Taller NoSQL MongoDB:
 """
 
 import unittest
-from bson import ObjectId
+try:
+    from bson import ObjectId
+except ImportError:
+    class ObjectId(str):  # type: ignore
+        pass
 from database import DatabaseManager
 from crud_master import CrudMaster
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError

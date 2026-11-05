@@ -1,13 +1,14 @@
 {
   "project": "Taller 5 NoSQL MongoDB - TechCare Solutions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "pdco_phase": "CONTROL",
   "active_skill": "03-development",
   "sdlc_stage": "implementation",
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-11-05",
   "artifacts": [
     "crud_master.py",
     "main.py",
+    "gui_app.py",
     "database.py",
     "test_app.py",
     "requirements.txt",

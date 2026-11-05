@@ -126,6 +126,11 @@ class DatabaseManager:
         """Indica si el gestor está operando sobre el motor mock en memoria."""
         return self._is_mock
 
+    @property
+    def is_mock(self) -> bool:
+        """Propiedad para verificar si está activo el modo mock."""
+        return self._is_mock
+
     def close(self) -> None:
         """Cierra de forma controlada y segura la conexión con el servidor MongoDB."""
         if self._client is not None:
